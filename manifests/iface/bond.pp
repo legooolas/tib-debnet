@@ -133,8 +133,8 @@ define debnet::iface::bond(
   $iface_d = undef,
 
   # bond options
-  $ports = [],
-  $mode = 'active-backup',
+  Array $ports = [],
+  String $mode = 'active-backup',
   $miimon = 100,
   $use_carrier = true,
   $updelay = undef,
@@ -183,7 +183,6 @@ define debnet::iface::bond(
     }
   }
 
-  validate_array($ports)
   if size($ports) == 0 {
     fail('Bonding needs at least one port to be declared!')
   }
