@@ -51,10 +51,10 @@
 # limitations under the License.
 #
 define debnet::iface::loopback (
-  $ifname = $title,
-  $auto = true,
-  $allows = [],
-  $family = 'inet',
+  Enum['lo'] $ifname = $title,
+  Boolean $auto = true,
+  Array $allows = [],
+  Enum['inet'] $family = 'inet',
   $order = 0,
   $iface_d = undef,
 
@@ -69,10 +69,6 @@ define debnet::iface::loopback (
 ) {
   include debnet
 
-  validate_re($ifname, '^lo$')
-  validate_bool($auto)
-  validate_array($allows)
-  validate_re($family, '^inet$' )
   debnet::iface { $ifname:
     method     => 'loopback',
     auto       => $auto,
