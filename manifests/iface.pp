@@ -142,7 +142,6 @@ define debnet::iface (
   Variant[String, Undef] $vendor = undef,
   Variant[String, Undef] $client = undef,
 
-  #Variant[Pattern[//], Undef]
   # options for method static
   Variant[Pattern[/^(:?[0-9]{1,3}\.){3}[0-9]{1,3}$/], Undef] $address = undef,
   Variant[Pattern[/^([0-9]{1,3}\.){3}[0-9]{1,3}$|^[0-9]{1,2}$/], Integer, Undef] $netmask = undef,
